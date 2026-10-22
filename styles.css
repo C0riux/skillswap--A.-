@@ -237,3 +237,44 @@ footer nav a:focus-visible {
         margin: 0.75rem auto;
     }
 }
+
+/* Skill card details button */
+.details-button {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.65rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #1769aa;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.details-button:hover,
+.details-button:focus-visible {
+    background-color: #104e80;
+}
+
+/* Additional information shown when expanded */
+.skill-details {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-left: 4px solid #1769aa;
+    border-radius: 4px;
+    background-color: #eef6fc;
+    color: #263238;
+}
+
+/* Keep hidden details out of the layout */
+.skill-details[hidden] {
+    display: none;
+}
+
+/* Visual indication that a card is expanded */
+.skill-card.expanded {
+    border-color: #1769aa;
+    box-shadow: 0 6px 16px rgba(23, 105, 170, 0.18);
+}
