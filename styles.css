@@ -278,3 +278,39 @@ footer nav a:focus-visible {
     border-color: #1769aa;
     box-shadow: 0 6px 16px rgba(23, 105, 170, 0.18);
 }
+
+/* Skill category filters */
+.skill-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 2rem 0;
+}
+
+.filter-button {
+    padding: 0.65rem 1.1rem;
+    border: 1px solid #1769aa;
+    border-radius: 6px;
+    background-color: #ffffff;
+    color: #1769aa;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.filter-button:hover,
+.filter-button:focus-visible {
+    background-color: #e0f2fe;
+}
+
+.filter-button.active {
+    background-color: #1769aa;
+    color: #ffffff;
+}
+
+/* Ensure filtered cards do not occupy grid space */
+.skill-card[hidden] {
+    display: none;
+}
