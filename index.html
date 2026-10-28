@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skill Swap</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
     <script src="skillswap-functions.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <!--As per assignment requirements, this webpage has been AI generated.-->
@@ -139,6 +139,47 @@
                     </div>
                 </article>
             </div>
+        </section>
+
+        <section class="cost-calculator" id="calculator">
+            <h2>Cost Calculator</h2>
+            <p>Estimate the cost of your tutoring session.</p>
+
+            <form id="cost-calculator-form">
+                <div class="calculator-field">
+                    <label for="hourly-rate">Hourly Rate ($)</label>
+                    <input
+                        type="number"
+                        id="hourly-rate"
+                        name="hourlyRate"
+                        min="0"
+                        step="any"
+                        placeholder="e.g. 20"
+                        required
+                    >
+                </div>
+
+                <div class="calculator-field">
+                    <label for="hours">Hours Requested</label>
+                    <input
+                        type="number"
+                        id="hours"
+                        name="hours"
+                        min="0"
+                        step="any"
+                        placeholder="e.g. 1.5"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="button">
+                    Calculate Cost
+                </button>
+            </form>
+
+            <p id="cost-result" aria-live="polite">
+                Enter a rate and number of hours to calculate your total.
+            </p>
         </section>
     </main>
 
