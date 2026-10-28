@@ -13,7 +13,8 @@ describe('filterSkillsByCategory', () => {
   test('filters skills by category', () => {
     expect(filterSkillsByCategory(skills, 'Programming')).toEqual([
       { title: 'Python Tutoring', category: 'Programming', price: 20 },
-      { title: 'Web Development', category: 'Programming', price: 25 }
+      { title: 'Web Development', category: 'Programming', price: 25 },
+      { title: 'JavaScript Help', category: 'Programming', price: 25 }
     ]);
   });
 
@@ -57,6 +58,7 @@ describe('matchSkillsToUser', () => {
 
         expect(matchSkillsToUser(userNeeds, skills)).toEqual([
             { title: 'Python Tutoring', category: 'Programming', price: 20 },
+            { title: 'Web Development', category: 'Programming', price: 25 },
             { title: 'JavaScript Help', category: 'Programming', price: 25 }
         ]);
     });

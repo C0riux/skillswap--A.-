@@ -97,4 +97,61 @@ document.addEventListener("DOMContentLoaded", function () {
 
         result.textContent = `Total Cost: $${total.toFixed(2)}`;
     });
+
+    //Initialize Offering Match Finder
+    const matchForm = document.getElementById('match-form');
+    const categoryInput = document.getElementById('match-category');
+    const priceInput = document.getElementById('max-price');
+    const resultsContainer = document.getElementById('match-results');
+
+    const matchSkills = Array.from(
+        document.querySelectorAll('.skill-card')
+    ).map(card => ({
+        title: card.querySelector('h3').textContent,
+        category: card.dataset.category,
+        price: Number(card.dataset.price),
+        element: card
+    }));
+
+    matchForm.addEventListener('submit', event => {
+        event.preventDefault();
+
+        const userNeeds = {
+            category: categoryInput.value,
+            maxPrice: Number(priceInput.value)
+        };
+
+        const matches = matchSkillsToUser(userNeeds, matchSkills);
+
+        resultsContainer.replaceChildren();
+
+        if (matches.length === 0) {
+            const message = document.createElement('p');
+            message.textContent =
+                'No matching skills found. Try another category or budget.';
+            resultsContainer.appendChild(message);
+            return;
+        }
+
+        const heading = document.createElement('h3');
+        heading.textContent = `Found ${matches.length} matching skill(s):`;
+        resultsContainer.appendChild(heading);
+
+        matches.forEach(skill => {
+            const card = document.createElement('article');
+            card.classList.add('match-result');
+
+            const title = document.createElement('h3');
+            title.textContent = skill.title;
+
+            const category = document.createElement('p');
+            category.textContent = `Category: ${skill.category}`;
+
+            const price = document.createElement('p');
+            price.textContent = `Price: $${skill.price.toFixed(2)}/hour`;
+
+            card.append(title, category, price);
+            resultsContainer.appendChild(card);
+        });
+    });
 });
