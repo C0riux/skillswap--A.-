@@ -6,4 +6,8 @@ function filterSkillsByCategory(skills, category) {
   return skills.filter(skill => skill.category === category);
 }
 
-module.exports = {filterSkillsByCategory};
+function calculateTotalCosts(rate, hours) {
+    return rate * hours;
+}
+
+module.exports = {filterSkillsByCategory, calculateTotalCosts};
