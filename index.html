@@ -67,7 +67,7 @@
             </div>
 
             <div class="skill-list">
-                <article class="skill-card" data-category="Programming">
+                <article class="skill-card" data-category="Programming" data-price="25">
                     <h3>Web Development</h3>
                     <p>Learn the fundamentals of HTML, CSS, and JavaScript.</p>
                     <p><strong>Price:</strong> $25/hour</p>
@@ -85,7 +85,7 @@
                     </div>
                 </article>
 
-                <article class="skill-card" data-category="Academic">
+                <article class="skill-card" data-category="Academic" data-price="20">
                     <h3>Mathematics</h3>
                     <p>Get help with algebra, geometry, and calculus.</p>
                     <p><strong>Price:</strong> $20/hour</p>
@@ -103,7 +103,7 @@
                     </div>
                 </article>
 
-                <article class="skill-card" data-category="Design">
+                <article class="skill-card" data-category="Design" data-price="30">
                     <h3>Graphic Design</h3>
                     <p>Explore design principles, typography, and visual composition.</p>
                     <p><strong>Price:</strong> $30/hour</p>
@@ -121,7 +121,7 @@
                     </div>
                 </article>
 
-                <article class="skill-card" data-category="Languages">
+                <article class="skill-card" data-category="Languages" data-price="18">
                     <h3>Spanish Language</h3>
                     <p>Build your vocabulary, grammar, and conversational skills.</p>
                     <p><strong>Price:</strong> $18/hour</p>
@@ -141,6 +141,46 @@
             </div>
         </section>
 
+        <!--Offering Match Finder-->
+        <section class="find-match" id="find-match">
+            <h2>Find My Match</h2>
+            <p>Find tutoring options that fit your interests and budget.</p>
+
+            <form id="match-form">
+                <div class="match-field">
+                    <label for="match-category">Category Preference</label>
+                    <select id="match-category" required>
+                        <option value="" disabled selected>
+                            Select a category
+                        </option>
+                        <option value="Programming">Programming</option>
+                        <option value="Academic">Academic</option>
+                        <option value="Design">Design</option>
+                        <option value="Languages">Languages</option>
+                    </select>
+                </div>
+
+                <div class="match-field">
+                    <label for="max-price">Maximum Price per Hour ($)</label>
+                    <input
+                        type="number"
+                        id="max-price"
+                        min="0"
+                        step="any"
+                        placeholder="e.g. 25"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="button">Find My Match</button>
+            </form>
+
+            <div id="match-results" aria-live="polite" aria-atomic="true">
+                <p>Choose a category and budget to find matching skills.</p>
+            </div>
+        </section>
+
+        <!--Cost Calculator-->
         <section class="cost-calculator" id="calculator">
             <h2>Cost Calculator</h2>
             <p>Estimate the cost of your tutoring session.</p>
