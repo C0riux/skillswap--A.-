@@ -42,8 +42,32 @@
                 someone who can help you learn.
             </p>
 
+            <!--SKILL CARDS & FILTERING-->
+            <div class="skill-filters" aria-label="Filter skills by category">
+                <button type="button" class="filter-button active"
+                        data-category="All" aria-pressed="true">
+                    All
+                </button>
+                <button type="button" class="filter-button"
+                        data-category="Programming" aria-pressed="false">
+                    Programming
+                </button>
+                <button type="button" class="filter-button"
+                        data-category="Academic" aria-pressed="false">
+                    Academic
+                </button>
+                <button type="button" class="filter-button"
+                        data-category="Design" aria-pressed="false">
+                    Design
+                </button>
+                <button type="button" class="filter-button"
+                        data-category="Languages" aria-pressed="false">
+                    Languages
+                </button>
+            </div>
+
             <div class="skill-list">
-                <article class="skill-card">
+                <article class="skill-card" data-category="Programming">
                     <h3>Web Development</h3>
                     <p>Learn the fundamentals of HTML, CSS, and JavaScript.</p>
                     <p><strong>Price:</strong> $25/hour</p>
@@ -61,7 +85,7 @@
                     </div>
                 </article>
 
-                <article class="skill-card">
+                <article class="skill-card" data-category="Academic">
                     <h3>Mathematics</h3>
                     <p>Get help with algebra, geometry, and calculus.</p>
                     <p><strong>Price:</strong> $20/hour</p>
@@ -79,7 +103,7 @@
                     </div>
                 </article>
 
-                <article class="skill-card">
+                <article class="skill-card" data-category="Design">
                     <h3>Graphic Design</h3>
                     <p>Explore design principles, typography, and visual composition.</p>
                     <p><strong>Price:</strong> $30/hour</p>
@@ -97,7 +121,7 @@
                     </div>
                 </article>
 
-                <article class="skill-card">
+                <article class="skill-card" data-category="Languages">
                     <h3>Spanish Language</h3>
                     <p>Build your vocabulary, grammar, and conversational skills.</p>
                     <p><strong>Price:</strong> $18/hour</p>
