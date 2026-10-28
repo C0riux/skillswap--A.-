@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    //Initialize Details Buttons
     const detailButtons = document.querySelectorAll(".details-button");
 
     detailButtons.forEach(function (button) {
@@ -22,10 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
             card.classList.toggle("expanded", !isExpanded);
         });
     });
-});
 
-// Connect the filter buttons to the skill cards.
-document.addEventListener('DOMContentLoaded', () => {
+    //Connect the filter buttons to the skill cards.
     const cards = Array.from(
         document.querySelectorAll('.skill-card')
     );
@@ -68,6 +67,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Show every card when the page first loads.
-    displaySkills('All');
+    //Initialize Cost Calculator
+    const form = document.getElementById('cost-calculator-form');
+    const rateInput = document.getElementById('hourly-rate');
+    const hoursInput = document.getElementById('hours');
+    const result = document.getElementById('cost-result');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const hourlyRate = Number(rateInput.value);
+        const hours = Number(hoursInput.value);
+
+        // Reject negative values and non-finite numbers.
+        if (
+            !Number.isFinite(hourlyRate) ||
+            !Number.isFinite(hours) ||
+            hourlyRate < 0 ||
+            hours < 0 ||
+            rateInput.value.trim() === '' ||
+            hoursInput.value.trim() === ''
+        ) {
+            result.textContent =
+                'Please enter valid, non-negative values for both fields.';
+            return;
+        }
+
+        const total = calculateTotalCosts(hourlyRate, hours);
+
+        result.textContent = `Total Cost: $${total.toFixed(2)}`;
+    });
 });
