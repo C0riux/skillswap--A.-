@@ -409,7 +409,8 @@ footer nav a:focus-visible {
     color: #243b53;
 }
 
-#match-form {
+#match-form,
+#create-skill-form {
     display: grid;
     gap: 1.25rem;
 }

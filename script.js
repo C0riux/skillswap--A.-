@@ -101,6 +101,42 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
+    // Handle creation of new skills.
+    const createSkillForm = document.getElementById('create-skill-form');
+    const createSkillResult = document.getElementById('create-skill-result');
+
+    createSkillForm.addEventListener('submit', async event => {
+        event.preventDefault();
+
+        // Collect the form values.
+        const skillData = {
+            title: document.getElementById('skill-title').value.trim(),
+            category: document.getElementById('skill-category').value,
+            price: Number(document.getElementById('skill-price').value),
+            description: document.getElementById('skill-description').value.trim(),
+            provider: document.getElementById('skill-provider').value.trim()
+        };
+
+        try {
+            // Send the new skill to the backend.
+            await window.apiService.createSkill(skillData);
+
+            createSkillResult.textContent = 'Skill created successfully!';
+
+            // Clear the form.
+            createSkillForm.reset();
+
+            // Reload the skills from the database.
+            await loadSkills();
+
+        } catch (error) {
+            console.error('Error creating skill:', error);
+
+            createSkillResult.textContent =
+                'Unable to create skill. Please try again.';
+        }
+    });
+
     // Handle More Information buttons using event delegation.
     skillList.addEventListener('click', event => {
         const button = event.target.closest('.details-button');
